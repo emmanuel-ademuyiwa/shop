@@ -1,0 +1,53 @@
+@import 'variables';
+
+.detailCard { 
+    width: 100%;
+    margin: 10px auto;
+    border: 1px solid $borderColor;
+    margin: 30px 0;
+}
+
+.detailImg { 
+    min-width: 50%;
+
+    img { 
+        width: 100%
+    }
+}
+
+.detailPricing { 
+    margin-left: 10px;
+
+    p { 
+        font-size: 13px;
+    }
+
+    .cart {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 10px;
+
+        h4 {
+            margin: 10px 0;
+        }
+
+        .addCart { 
+            font-size: 25px;
+            font-weight: 500;
+            cursor: pointer;
+
+
+            &:hover { 
+                color: $borderColor;
+            }
+        }
+    }
+}
+
+
+@media (min-width: 515px){
+    .detailCard { 
+        display: flex;
+    }
+}

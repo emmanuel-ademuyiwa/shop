@@ -1,0 +1,53 @@
+@import 'variables';
+
+
+.white { 
+    color: rgb(229, 228, 228);
+    text-decoration: none;
+}
+
+.darkMode { 
+    background-color: hsl(240, 18%, 7%);
+    color: rgb(229, 228, 228);
+
+    header { 
+        align-items: center;
+        box-shadow: 0px 0px 5px #888;
+        position: fixed;
+        width: 100%;
+        background-color: $whiteColor;
+        top: 0;
+        z-index: 999;
+    }
+
+    .link { 
+        text-decoration: none;
+        color: $whiteColor;
+    }
+    .cart {
+        color: $whiteColor;
+    }
+
+    ul { 
+        color: $whiteColor;
+    }
+
+}
+
+.darkContainer {
+    padding: 30px 50px;
+    background-color: hsl(240, 18%, 7%);
+    min-height: 100vh;
+
+}
+
+
+@media (max-width: 541px) {
+    .darkContainer {
+        padding: 0px 10px;
+        padding-top: 35px;
+        background-color: hsl(240, 18%, 7%);
+        min-height: 100vh;
+    }
+}
+
