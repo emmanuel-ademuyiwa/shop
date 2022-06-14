@@ -25,6 +25,8 @@ const INITIAL_STATE = {
     ],  // {id, title, desc, price}
     cart: [], // {id, title, desc, price, qty}
     currentItem: null,
+    address: false,
+    delivery: false
 }
 
 export const shopReducer = (state = INITIAL_STATE, action) => { 
@@ -48,6 +50,26 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 cart: state.cart.filter(item => item.id !== action.payload.id)
             }
+        case actionTypes.INCREASE_ITEM:
+            return {
+                ...state,
+                cart: state.cart.map(
+                    item => item.id === action.payload.id ? 
+                    {...item, qty: item.qty + 1} 
+                    : 
+                    item
+                )
+            }
+        case actionTypes.DECREASE_ITEM:
+            return {
+                ...state,
+                cart: state.cart.map(
+                    item => item.id === action.payload.id ? 
+                    {...item, qty: item.qty - 1} 
+                    : 
+                    item
+                )
+            }
         case actionTypes.ADJUST_QTY: 
             return {
                 ...state,
@@ -63,15 +85,16 @@ export const shopReducer = (state = INITIAL_STATE, action) => {
                 ...state,
                 currentItem: action.payload
             }
-        case actionTypes.LOAD_LIGHT_MODE:
-            return { 
+        case actionTypes.CHECK_ADDRESS:
+            return {
                 ...state,
-                mode: 'container'
+                address: true
             }
-        case actionTypes.LOAD_DARK_MODE:
-            return { 
+        case actionTypes.CHECK_DELIVERY:
+            return {
                 ...state,
-                mode: 'darkContainer'
+                address: true,
+                delivery: true
             }
         default:
             return state

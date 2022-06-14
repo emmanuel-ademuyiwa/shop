@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { FaBars , FaTimes} from 'react-icons/fa'
+import { FaBars, FaTimesCircle } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { darkMode, lightMode } from '../redux/theme/theme-actions';
+import { switchTheme } from '../redux/theme/theme-actions';
 
 const Header = () => {
 
     const cart = useSelector(state =>  state.shop.cart)
     const theme = useSelector(state => state.theme.background)
+    const switchCurrentTheme = useSelector(state => state.theme.switch.value)
+
     const dispatch = useDispatch()
 
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -26,21 +28,17 @@ const Header = () => {
         setToggleMenu(!toggleMenu)
     }
 
-    const handleLightMode = () => { 
-        dispatch(lightMode())
-    }
-
-    const handleDarkMode = () => { 
-        dispatch(darkMode())
+    const handleSwitch = () => { 
+        dispatch(switchTheme())
     }
 
   return (
-    <header className={theme.header}>
+    <header className={ switchCurrentTheme ? "darkMode" : '' }>
         <div className="headerContainer">
             <nav>
-                <Link className={`link ${theme.color}`} to="/"><h4 className="logo">E-Commerce</h4></Link>
-                <ul className={`firstList ${theme.color}`}>
-                    <li>All Products</li>
+                <Link className={ switchCurrentTheme ? "darkLink white" : "darkLink" } to="/"><h4 className="logo">E-Commerce</h4></Link>
+                <ul className={ switchCurrentTheme ? "firstList white" : "firstList"}>
+                    <Link className={ switchCurrentTheme ? "darkLink white" : "darkLink" } to='/'><li>All Products</li></Link>
                     <li>Leather Products</li>
                     <li>Comfort Sleepers</li>
                 </ul>
@@ -53,11 +51,11 @@ const Header = () => {
                     <div className="cartContainer">
                         <Link to="/cart" className='link'><h4 className={`cart ${theme.color}`}>{cartCount}</h4></Link>
                     </div>
-                    <div className="switch">
-                        <div className="right" onClick={handleLightMode} >
+                    <div className="switch" onClick={handleSwitch}>
+                        <div className="right">
 
                         </div>
-                        <div className="left" onClick={handleDarkMode} >
+                        <div className="left" >
 
                         </div>
                     </div>
@@ -69,13 +67,13 @@ const Header = () => {
                 toggleMenu &&
                 <div className="mobileNav">
                     <ul className='mobileNavList'>
-                        <li>All Products</li>
+                        <Link className={ switchCurrentTheme ? "link white" : "link" } to='/' onClick={handleMenuClick}><li>All Products</li></Link>
                         <li>Leather Products</li>
                         <li>Comfort Sleepers</li>
                         <li>About Us</li>
                         <li>Blog</li>
                     </ul>
-                    <FaTimes onClick={handleMenuClick} className='closeMenu'/>
+                    <FaTimesCircle onClick={handleMenuClick} className='closeMenu'/>
                 </div>
             }
 

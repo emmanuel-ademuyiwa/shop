@@ -1,11 +1,16 @@
 import React,{ useState, useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Layout from '../components/Layout';
+import { Link } from 'react-router-dom';
+
+import {AiFillPlusCircle, AiFillMinusCircle, AiOutlineDelete} from 'react-icons/ai';
+import { removeFromCart, increaseItem, decreaseItem } from '../redux/shopping/shopping-actions';
 
 const CartPage = () => {
 
   const cart = useSelector(state => state.shop.cart)
-  const theme = useSelector(state => state.theme.background)
+  const dispatch = useDispatch()
+  const switchTheme = useSelector(state => state.theme.switch.value)
 
 
   const [totalPrice, setTotalPrice] = useState(0);
@@ -32,14 +37,29 @@ const CartPage = () => {
           {
             cart.map(cart => (
 
-              <div className="cartItem" key={cart.id}>
-                <div className="cartItemImg">
-                  <img src={cart.image} alt="" />
+              <div className={switchTheme ? "white" : '' } key={cart.id} >
+                <div className="cartItem">
+                  <div className="cartItemImg">
+                    <img src={cart.image} alt="" />
+                  </div>
+                  <div className={ switchTheme ? "cartItemDetails white" : "cartItemDetails black" }>
+                    <div className="cartTitle">
+                      <h6 className={ switchTheme ? "white" : "black" }>{cart.title}</h6>
+                    </div>
+              
+                  </div>
                 </div>
-                <div className={`cartItemDetails ${theme.color}`}>
-                  <h6 className={theme.color}>{cart.title}</h6>
+
+                <div className="cartPriceQty">
+                  <AiOutlineDelete onClick={() => dispatch(removeFromCart(cart.id))} className='icon red' />
+                  <div className="qty">
+                    <AiFillPlusCircle className='icon' onClick={() => dispatch(increaseItem(cart.id))} />
+                    <h6>{cart.qty}</h6>
+                    <AiFillMinusCircle className='icon' onClick={ cart.qty === 1 ? null : () => dispatch(decreaseItem(cart.id))} />
+                  </div>
                   <h6>${cart.price}</h6>
                 </div>
+
               </div>
 
             ))          
@@ -48,15 +68,15 @@ const CartPage = () => {
         </div>
 
         <div className="cartTotalDetails">
-          <div className={theme.color}>
+          <div className={ switchTheme ? "white" : "black" }>
             <h4>Cart Summary</h4>
             <div className="cartTotal">
-              <h5>Total items: {totalItems}</h5>
-              <h5>Total price: {totalPrice.toFixed(2)}</h5>
+              <h5>Subtotal</h5>
+              <h5>{totalPrice.toFixed(2)}</h5>
             </div>
-            <div className={`checkoutButton ${theme.color}`}>
-              <button>Proceed to checkout</button>
-            </div>
+            { cart.length >= 1 && <div className={ switchTheme ? "checkoutButton white" : "checkoutButton black" }>
+              <Link to='/checkout'><button className='button' >Proceed to checkout</button></Link>
+            </div>}
           </div>
         </div>
 

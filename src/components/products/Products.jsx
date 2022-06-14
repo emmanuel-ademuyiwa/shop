@@ -12,7 +12,7 @@ const Products = () => {
     fetch('https://fakestoreapi.com/products')
       .then(response => response.json())
       .then(data => setProductArray(data))
-  }, [productArray])
+  }, [])
 
   return (
     <div className="products container">

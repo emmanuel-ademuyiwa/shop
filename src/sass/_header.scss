@@ -10,10 +10,16 @@ header {
     z-index: 999;
 }
 
-.link { 
+.darkLink { 
     text-decoration: none;
     color: $blackColor;
 }
+
+.link { 
+    text-decoration: none;
+    color: $whiteColor;
+}
+
 
 .headerContainer { 
     margin: 0 100px;
@@ -45,6 +51,9 @@ nav {
             padding: 0px 20px;
             cursor: pointer;
         }
+        li:active {
+            transform: scale(.98);
+          }
     }
     .iconContainer {
         display: flex;
@@ -58,12 +67,12 @@ nav {
     .cart { 
         cursor: pointer;
         padding: 0px 6px;
-        background-color: #888;
-        border-radius: 60px;
+        background-color: $blueColor;
+        border-radius: 90px;
         font-size: 13px;
         justify-content: center;
-
         text-align: center;
+        color: $whiteColor;
     }
     
 }
@@ -83,7 +92,6 @@ nav {
         border-radius: 30px;
         cursor: pointer;
         background-color: white;
-
     }
 
     .left { 
@@ -106,7 +114,6 @@ nav {
     padding: 10px;
     display: flex;
     justify-content: space-around;
-
 
     ul { 
         list-style: none;

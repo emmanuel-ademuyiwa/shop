@@ -7,7 +7,7 @@ import { addToCart } from '../redux/shopping/shopping-actions';
 const DetailPage = () => {
 
   const dispatch = useDispatch()
-  const theme = useSelector(state => state.theme.background)
+  const switchTheme = useSelector(state => state.theme.switch.value)
   const currentItem = useSelector(state => state.shop.currentItem)
   const { title, description, price, image } = currentItem
 
@@ -17,7 +17,7 @@ const DetailPage = () => {
         <div className="detailImg">
           <img src={image} alt="" />
         </div>
-        <div className={`detailPricing ${theme.color}`}>
+        <div className={ switchTheme ? "detailPricing white" : "detailPricing black" }>
           <h4>{title}</h4>
           <p>{description}</p>
           <div className="cart">

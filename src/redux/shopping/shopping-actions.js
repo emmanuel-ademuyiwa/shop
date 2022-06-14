@@ -14,6 +14,24 @@ export const removeFromCart = (itemID) => {
             id: itemID
         }
     }
+}   
+
+export const increaseItem = (itemID) => { 
+    return {
+        type: actionTypes.INCREASE_ITEM,
+        payload: {
+            id: itemID
+        }
+    }
+}
+
+export const decreaseItem = (itemID) => { 
+    return {
+        type: actionTypes.DECREASE_ITEM,
+        payload: {
+            id: itemID
+        }
+    }
 }
 
 export const adjustQty = (itemID, value) => {
@@ -33,3 +51,14 @@ export const loadCurrentItem = (item) => {
     }
 }
 
+export const checkAddress = () => {
+    return { 
+        type: actionTypes.CHECK_ADDRESS
+    }
+}
+
+export const checkDelivery = () => {
+    return { 
+        type: actionTypes.CHECK_DELIVERY
+    }
+}

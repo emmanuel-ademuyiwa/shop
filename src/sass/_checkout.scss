@@ -1,0 +1,75 @@
+@import 'variables';
+
+.checkout { 
+    margin: 30px auto;
+    justify-content: space-between;
+}
+
+label {
+    font-size: small;
+}
+
+input { 
+    width: 96%;
+    height: 20px;
+    padding: 5px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 1px solid $borderColor;
+    border-radius: 0!important;
+}
+
+.phone { 
+    display: flex;
+    justify-content: space-between;
+}
+
+.phoneShortCode { 
+    flex: 1;
+    margin-right: 10px;
+}
+
+.phoneNumber { 
+    flex: 9;
+}
+
+.address { 
+    width: 97%;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+.deliveryChoice { 
+    margin: 20px auto;
+}
+
+.flex { 
+    display: flex;
+    align-items: center;
+}
+
+h5 { 
+    margin: 0;
+}
+
+.deliveryInput { 
+    width: 30px;
+    margin-top: 8px;
+}
+
+.cartSummaryList { 
+    max-height: 400px;
+    overflow: auto;
+
+    text-align: left;
+}
+
+.cartSummaryList::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .cartSummaryList {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
