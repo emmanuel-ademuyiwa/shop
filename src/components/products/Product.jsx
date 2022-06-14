@@ -23,7 +23,7 @@ const Product = ({ id, title, price, img, product }) => {
             </div>
             <div className="cart">
               <h6 className={ switchTheme ? "white" : "black" }  >${price}</h6>
-              <MdOutlineAddShoppingCart onClick={() => dispatch(addToCart(product))} className={ switchTheme ? "addToCart white" : "addToCart black" } />
+              <MdOutlineAddShoppingCart onClick={() => dispatch(addToCart(product))} className={ switchTheme ? "addCart white" : "addCart black" } />
             </div>
         </div> 
       </div>

@@ -83,7 +83,7 @@ const Checkout = () => {
           </div>
             */}
 
-          <div className="cartTotalDetails">
+          <div className="cartTotalDetails frame">
             <div className={ switchCurrentTheme ? 'white' : 'black' }>
               <h4>Cart Summary</h4>
 
@@ -99,7 +99,10 @@ const Checkout = () => {
                       </div>
                       <div className={ switchCurrentTheme ? "cartItemDetails white" : "cartItemDetails black" }>
                         <h6 className={ switchCurrentTheme ? "white" : "black" }>{cart.title}</h6>
-                        <h6>${cart.price}</h6>
+                        <div className="flex">
+                          <h6>${cart.price * cart.qty}</h6>
+                          <h6>Qty: {cart.qty}</h6>
+                        </div>
                       </div>
                     </div>
 

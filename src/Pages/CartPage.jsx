@@ -57,7 +57,7 @@ const CartPage = () => {
                     <h6>{cart.qty}</h6>
                     <AiFillMinusCircle className='icon' onClick={ cart.qty === 1 ? null : () => dispatch(decreaseItem(cart.id))} />
                   </div>
-                  <h6>${cart.price}</h6>
+                  <h6>${cart.price * cart.qty}</h6>
                 </div>
 
               </div>

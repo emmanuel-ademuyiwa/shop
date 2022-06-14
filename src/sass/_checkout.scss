@@ -1,7 +1,7 @@
 @import 'variables';
 
 .checkout { 
-    margin: 30px auto;
+    margin: 30px auto 0px;
     justify-content: space-between;
 }
 
@@ -14,9 +14,11 @@ input {
     height: 20px;
     padding: 5px;
     margin-bottom: 10px;
-    outline: none;
     border: 1px solid $borderColor;
-    border-radius: 0!important;
+}
+
+textarea {
+    border: 1px solid $borderColor;
 }
 
 .phone { 
@@ -46,6 +48,7 @@ input {
 .flex { 
     display: flex;
     align-items: center;
+    justify-content: space-around;
 }
 
 h5 { 
@@ -60,9 +63,10 @@ h5 {
 .cartSummaryList { 
     max-height: 400px;
     overflow: auto;
-
     text-align: left;
 }
+
+
 
 .cartSummaryList::-webkit-scrollbar {
     display: none;
@@ -72,4 +76,13 @@ h5 {
   .cartSummaryList {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+  }
+
+
+  @media (min-width: 768px) { 
+    .checkout { 
+        display: flex;
+        width: 950px;
+        margin: 50px auto;
+    }
   }

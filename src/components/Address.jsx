@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-import { useSelector, useDispatch, connect } from 'react-redux'
-import { addressCheck } from '../redux/checkout/checkout-action'
-
+import React from 'react';
 
 const Address = ({ address_check }) => {
 
@@ -16,7 +13,7 @@ const Address = ({ address_check }) => {
                 <input type="text" />
             </div>
             <div className="phoneContainer">
-                <label htmlFor="">Mobile Phone Number</label>
+                <label htmlFor="">Mobile Number</label>
                 <input className='phoneNumber' type="text" />
             </div>
             <label htmlFor="">Address</label>
@@ -26,16 +23,5 @@ const Address = ({ address_check }) => {
   )
 }
 
-const mapStateToProps = () => {
-    return {
-  
-    }
-  } 
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-        addressCheck: (val) => dispatch(addressCheck(val))
-    }
-  }
 
 export default Address;
