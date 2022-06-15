@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimesCircle } from 'react-icons/fa'
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useUserAuth } from '../context/useAuthContext';
 import { switchTheme } from '../redux/theme/theme-actions';
 
 const Header = () => {
@@ -9,6 +10,7 @@ const Header = () => {
     const cart = useSelector(state =>  state.shop.cart)
     const theme = useSelector(state => state.theme.background)
     const switchCurrentTheme = useSelector(state => state.theme.switch.value)
+    const { user } = useUserAuth()
 
     const dispatch = useDispatch()
 
@@ -59,6 +61,7 @@ const Header = () => {
 
                         </div>
                     </div>
+                    { user && <div>{user.reloadUserInfo.email.slice(0, 6)}...</div>}
                     <FaBars onClick={handleMenuClick} className='harmburger' />
                 </div>
             </nav>
