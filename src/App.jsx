@@ -18,7 +18,7 @@ function App() {
       <BrowserRouter className="App">
         <Routes>
           <Route path="/auth/signin" element={<Signin />} />
-          <Route path="/signup" element={<Signup />} />
+          <Route path="/auth/signup" element={<Signup />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/detail/:id" element={ !currentItem ? <Navigate to="/" /> : <DetailPage />} />
           <Route path="/cart" element={<CartPage />} />

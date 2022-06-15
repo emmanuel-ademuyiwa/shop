@@ -19,7 +19,7 @@ const Signup = () => {
       e.preventDefault();
       setError("")
       try { 
-        await signUp(username, email, password)
+        await signUp(email, password)
         navigate("/")
       } catch (err) {
         setError(err.message)
@@ -34,15 +34,9 @@ const Signup = () => {
               { error && <Alert variant="danger">{error}</Alert> }
               <div className="formControl">
                   <form action="" onSubmit={handleSubmit}>
-                    
-                    <label htmlFor="username">Username</label>
-                    <input type="text" id='username' value={username} onChange={(event) => setUsername(event.target.value)} />
 
                     <label htmlFor="email">Email</label>
                     <input type="email" id='email' value={email} onChange={(event) => setEmail(event.target.value)} />
-
-                    <label htmlFor="phone">Phone</label>
-                    <input type="number" id='phone' value={phone} onChange={(event) => setPhone(event.target.value)} />
 
                     <label htmlFor="password">Password</label>
                     <input type="password" id="password" value={password} onChange={(event) => setPassword(event.target.value)} />

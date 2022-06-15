@@ -12,8 +12,8 @@ const userAuthContext=  createContext();
 
 export function UserAuthContextProvider ({children}) {
     const [user, setUser] = useState('')
-    function signUp(username, email, password){
-        return createUserWithEmailAndPassword(auth, username, email, password)
+    function signUp(email, password){
+        return createUserWithEmailAndPassword(auth, email, password)
     }
     function signIn( email, password ){
         return signInWithEmailAndPassword(auth, email, password)

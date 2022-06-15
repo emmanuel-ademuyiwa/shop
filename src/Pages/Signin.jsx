@@ -42,7 +42,7 @@ const Signin = () => {
                           <Link className='darkLink underlineText' to="/reset">Forgot Password</Link>
                       </div>
                       <div className='signupBtn'>
-                          <Link className='darkLink underlineText' to="/signup">Sign Up</Link>
+                          <Link className='darkLink underlineText' to="/auth/signup">Sign Up</Link>
                       </div>
                   </div>
               </div>
