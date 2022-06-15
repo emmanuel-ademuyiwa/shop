@@ -26,7 +26,7 @@ const Signin = () => {
       <div className='onbooard'>
           <div className="onbooardContainer">
               <h4>Sign In</h4>
-              { error && <Alert variant="danger">{error}</Alert> }
+              { error && <Alert variant="danger">{error.slice(9)}</Alert> }
               <div className="formControl">
                   <form action="" onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>

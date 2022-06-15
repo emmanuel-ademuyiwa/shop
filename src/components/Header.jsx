@@ -61,7 +61,7 @@ const Header = () => {
 
                         </div>
                     </div>
-                    { user && <div>{user.reloadUserInfo.email.slice(0, 6)}...</div>}
+                    { user ? <div>{user.reloadUserInfo.email.slice(0, 6)}...</div> : null}
                     <FaBars onClick={handleMenuClick} className='harmburger' />
                 </div>
             </nav>

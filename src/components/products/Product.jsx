@@ -3,7 +3,6 @@ import { MdOutlineAddShoppingCart } from 'react-icons/md'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { addToCart, loadCurrentItem } from '../../redux/shopping/shopping-actions';
-// import { Image, Shimmer } from 'react-shimmer'
 
 const Product = ({ id, title, price, img, product }) => {
 
@@ -17,7 +16,7 @@ const Product = ({ id, title, price, img, product }) => {
         </div>
         <div className="productDetails">
             <div className="productTitle">
-              <Link className='darkLink' to={`/detail/${id}`}>
+              <Link className='darkLink' to={`/detail/${title}`}>
                 <h6 className={ switchTheme ? "white" : "black" } onClick={() => dispatch(loadCurrentItem(product))} >{title}</h6>
               </Link>
             </div>

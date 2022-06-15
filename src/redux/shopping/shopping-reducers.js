@@ -21,6 +21,26 @@ const INITIAL_STATE = {
             id: 4,
             title: '',
             price: ''
+        },
+        {
+            id: 5,
+            title: '',
+            price: ''
+        },
+        {
+            id: 6,
+            title: '',
+            price: ''
+        },
+        {
+            id: 7,
+            title: '',
+            price: ''
+        },
+        {
+            id: 8,
+            title: '',
+            price: ''
         }
     ],  // {id, title, desc, price}
     cart: [], // {id, title, desc, price, qty}
