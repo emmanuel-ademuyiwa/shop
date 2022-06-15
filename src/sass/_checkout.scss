@@ -15,6 +15,7 @@ input {
     padding: 5px;
     margin-bottom: 10px;
     border: 1px solid $borderColor;
+    outline: none;
 }
 
 textarea {
@@ -24,15 +25,6 @@ textarea {
 .phone { 
     display: flex;
     justify-content: space-between;
-}
-
-.phoneShortCode { 
-    flex: 1;
-    margin-right: 10px;
-}
-
-.phoneNumber { 
-    flex: 9;
 }
 
 .address { 

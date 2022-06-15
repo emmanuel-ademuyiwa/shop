@@ -11,6 +11,8 @@ const Header = () => {
     const theme = useSelector(state => state.theme.background)
     const switchCurrentTheme = useSelector(state => state.theme.switch.value)
     const { user } = useUserAuth()
+    const { logOut } = useUserAuth()
+
 
     const dispatch = useDispatch()
 
@@ -32,6 +34,11 @@ const Header = () => {
 
     const handleSwitch = () => { 
         dispatch(switchTheme())
+    }
+
+    const handleSignOut = (user) => {
+        logOut(user)
+        setToggleMenu(!toggleMenu)
     }
 
   return (
@@ -75,6 +82,7 @@ const Header = () => {
                         <li>Comfort Sleepers</li>
                         <li>About Us</li>
                         <li>Blog</li>
+                        <li onClick={handleSignOut}>Sign Out</li>
                     </ul>
                     <FaTimesCircle onClick={handleMenuClick} className='closeMenu'/>
                 </div>

@@ -14,13 +14,8 @@ async function fetchPosts(){
 const Products = () => {
 
   const {data, error, isError, isLoading } = useQuery('posts', fetchPosts) 
-
-
   const products = useSelector(state => state.shop.products)
   const [productArray] = useState(products);
-
-  //setProductArray(data)
-  console.log(data)
 
   if(isLoading){
     return(
